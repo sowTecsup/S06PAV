@@ -14,6 +14,7 @@ public enum PlayerController
 public class Player : BaseEntity
 {
     public InputSystem_Actions inputs;//-> 1.
+    public InputActionMap actionMap;
     public PlayerController playerController;
 
 
@@ -22,10 +23,9 @@ public class Player : BaseEntity
     public Vector2 MoveInput;
     public float MoveSpeed;
 
-    public CircleCollider2D coll;
-    public float range;
 
     public List<GameObject> Enemys = new();
+
 
     private void Awake()
     {
@@ -37,8 +37,6 @@ public class Player : BaseEntity
     private void OnEnable()
     {
         inputs.Enable();//-> 3.
-
-      //  InputSystem_Actions PlayerMap = inputs;
 
         switch (playerController)
         {
@@ -62,13 +60,6 @@ public class Player : BaseEntity
                 }
                 break;
         }
-
-
-
-      
-
-
-
     }
 
     
