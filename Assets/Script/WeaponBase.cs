@@ -15,10 +15,13 @@ public class WeaponBase : MonoBehaviour
     public float speed;
     public float RotationSpeed;
 
+    public Vector2 dir;
+
 
     void Start()
     {
         Destroy(gameObject,Duration);
+        dir = randomDirection();
     }
     void Update()
     {
@@ -31,6 +34,8 @@ public class WeaponBase : MonoBehaviour
                 transform.eulerAngles += Vector3.forward * RotationSpeed * Time.deltaTime; 
                 break;
             case ProyectileType.Throw:
+                transform.position += (Vector3)dir * speed * Time.deltaTime;
+                transform.eulerAngles += Vector3.forward * RotationSpeed * Time.deltaTime;
                 break;
             case ProyectileType.Falling:
                 break;
