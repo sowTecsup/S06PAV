@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Player : BaseEntity
 {
-    public InputSystem_Actions inputs;
+
     public Animator animator;
 
     public Vector2 MoveInput;
@@ -19,13 +19,11 @@ public class Player : BaseEntity
     {
         coll = GetComponent<CircleCollider2D>();
         coll.radius = range;
-        inputs = new();
+        
     }
     private void OnEnable()
     {
-        inputs.Enable();
-        inputs.Player.Move.performed += ctx => MoveInput = ctx.ReadValue<Vector2>();
-        inputs.Player.Move.canceled += ctx => MoveInput = Vector2.zero;
+        
 
 
     }
