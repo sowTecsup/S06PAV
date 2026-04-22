@@ -30,14 +30,22 @@ public class WeaponBase : MonoBehaviour
             case ProyectileType.None:
                 break;
             case ProyectileType.Spin:
-                transform.position += transform.up * speed * Time.deltaTime;
-                transform.eulerAngles += Vector3.forward * RotationSpeed * Time.deltaTime; 
+                {
+                    transform.position += transform.up * speed * Time.deltaTime;
+                    transform.eulerAngles += Vector3.forward * RotationSpeed * Time.deltaTime;
+                }
                 break;
             case ProyectileType.Throw:
-                transform.position += (Vector3)dir * speed * Time.deltaTime;
-                transform.eulerAngles += Vector3.forward * RotationSpeed * Time.deltaTime;
+                {
+                    transform.position += (Vector3)dir * speed * Time.deltaTime;
+                    transform.eulerAngles += Vector3.forward * RotationSpeed * Time.deltaTime;
+                }
                 break;
             case ProyectileType.Falling:
+                {
+                    transform.position += (Vector3)dir * speed * Time.deltaTime;
+                    transform.eulerAngles += Vector3.forward * RotationSpeed * Time.deltaTime;
+                }
                 break;
             default:
                 break;
@@ -45,7 +53,7 @@ public class WeaponBase : MonoBehaviour
     }
     public Vector2 randomDirection()
     {
-        Vector2 randomDir = new Vector2(Random.Range( -1,1), Random.Range( -1,1) );
+        Vector2 randomDir = new Vector2(Random.Range( -1f,1f), Random.Range( -1f,1f) );
         return randomDir.normalized;
     }
 
