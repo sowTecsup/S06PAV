@@ -6,16 +6,20 @@ public class CameraManager : MonoBehaviour
     public GameObject playerA;
     public GameObject playerB;
 
-   // public flo
+    public float minSize;
+    public float maxSize;   
     void Start()
     {
         
     }
-
-    // Update is called once per frame
     void Update()
     {
-        float size = Vector3.Distance(playerA.transform.position, playerB.transform.position) / 2;
+        float size = Vector3.Distance(playerA.transform.position, playerB.transform.position) / 1.8f;
+        if(size < minSize)
+            size = minSize;
+        if(size > maxSize)
+            size = maxSize; 
+
         Vector3 MediumPos = (playerA.transform.position + playerB.transform.position) / 2;
 
         MediumPos.z = -10;
